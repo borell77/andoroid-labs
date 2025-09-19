@@ -1,9 +1,11 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import android.widget.TextView
 
 class SimpleListActivity : AppCompatActivity() {
 
@@ -14,39 +16,39 @@ class SimpleListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_simple_list)
 
-        recyclerView = findViewById(R.id.recyclerView)
+        // 👇 Получаем данные, переданные из MainActivity
+        val senderLogin = intent.getStringExtra("SENDER_LOGIN") ?: "Гость"
+        val titleText = "Список пользователей (от: $senderLogin)"
 
-        // Простой список строк — тестовые данные
+        // Обновляем заголовок
+        val titleView = findViewById<TextView>(R.id.textViewTitle)
+        titleView.text = titleText
+
+        // Пример данных — можно сделать динамическим
         val dataList = listOf(
-            "Элемент 1",
-            "Элемент 2",
-            "Элемент 3",
-            "Элемент 4",
-            "Элемент 5",
-            "Элемент 6",
-            "Элемент 7",
-            "Элемент 8",
-            "Элемент 9",
-            "Элемент 10",
-            "Элемент 11",
-            "Элемент 12",
-            "Элемент 13",
-            "Элемент 14",
-            "Элемент 15",
-            "Элемент 9",
-            "Элемент 10",
-            "Элемент 11",
-            "Элемент 12",
-            "Элемент 13",
-            "Элемент 14"
+            "$senderLogin — Админ",
+            "Александр",
+            "Мария",
+            "Иван",
+            "Екатерина",
+            "Дмитрий",
+            "Ольга",
+            "Павел",
+            "Наталья",
+            "Сергей",
+            "Татьяна"
         )
 
-        // Создаем адаптер
         adapter = SimpleTextAdapter(dataList) { item ->
-            Toast.makeText(this, "Выбрано: $item", Toast.LENGTH_SHORT).show()
+            // 👇 Возвращаем результат обратно в MainActivity
+            val resultIntent = Intent().apply {
+                putExtra("SELECTED_ITEM", item)
+            }
+            setResult(RESULT_OK, resultIntent)
+            finish() // Закрываем этот экран
         }
 
-        // Настраиваем RecyclerView
+        recyclerView = findViewById(R.id.recyclerView)
         recyclerView.apply {
             layoutManager = LinearLayoutManager(this@SimpleListActivity)
             adapter = this@SimpleListActivity.adapter

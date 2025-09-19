@@ -37,8 +37,6 @@
         android:layout_marginStart="@dimen/margin_small"
         android:layout_marginEnd="@dimen/margin_small" />
 
-    
-
     <!-- Поле ввода пароля -->
     <EditText
         android:id="@+id/editTextPassword"
@@ -67,6 +65,23 @@
         android:textColor="@color/colorButtonText"
         android:layout_marginTop="@dimen/margin_large"
         app:layout_constraintTop_toBottomOf="@id/editTextPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:padding="@dimen/padding_input" />
+
+    <!-- Кнопка для открытия списка -->
+    <Button
+        android:id="@+id/buttonOpenList"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Открыть список пользователей"
+        android:textSize="@dimen/text_size_input"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/colorButtonText"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintTop_toBottomOf="@id/textViewResult"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginStart="@dimen/margin_small"
