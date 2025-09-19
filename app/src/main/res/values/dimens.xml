@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Размеры шрифтов -->
+    <dimen name="text_size_title">28sp</dimen>
+    <dimen name="text_size_input">16sp</dimen>
+    <dimen name="text_size_result">16sp</dimen>
+
+    <!-- Отступы -->
+    <dimen name="margin_large">40dp</dimen>
+    <dimen name="margin_medium">20dp</dimen>
+    <dimen name="margin_small">16dp</dimen>
+    <dimen name="padding_input">16dp</dimen>
+
+    <!-- Радиус углов -->
+    <dimen name="corner_radius">8dp</dimen>
+</resources>

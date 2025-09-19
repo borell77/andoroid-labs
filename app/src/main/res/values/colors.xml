@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Цвета для интерфейса -->
+    <color name="colorPrimary">#4CAF50</color>      <!-- Зелёная кнопка -->
+    <color name="colorTextPrimary">#333333</color>  <!-- Основной текст -->
+    <color name="colorTextSecondary">#666666</color> <!-- Вторичный текст -->
+    <color name="colorBackground">#F5F5F5</color>   <!-- Фон экрана -->
+    <color name="colorEditTextBg">#FFFFFF</color>   <!-- Фон EditText -->
+    <color name="colorEditTextBorder">#CCCCCC</color> <!-- Граница EditText -->
+
+    <!-- Цвета для текста кнопки -->
+    <color name="colorButtonText">#FFFFFF</color>
+</resources>

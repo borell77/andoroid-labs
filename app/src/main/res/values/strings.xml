@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Заголовок -->
+    <string name="app_name">LoginScreenDemo</string>
+    <string name="title_login">Вход в систему</string>
+
+    <!-- Поля ввода -->
+    <string name="hint_login">Логин</string>
+    <string name="hint_password">Пароль</string>
+
+    <!-- Кнопка -->
+    <string name="button_login">Войти</string>
+
+    <!-- Результат -->
+    <string name="result_text">Результат будет здесь...</string>
+
+    <!-- Toast-сообщения -->
+    <string name="toast_login_success">Логин: %1$s\nПароль: %2$s</string>
+    <string name="toast_error_login">Введите логин!</string>
+    <string name="toast_error_password">Введите пароль!</string>
+</resources>
