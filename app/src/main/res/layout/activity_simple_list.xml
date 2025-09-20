@@ -7,7 +7,7 @@
     android:background="#FFFFFF"
     tools:context=".SimpleListActivity">
 
-    <!-- Заголовок (опционально) -->
+
     <TextView
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
@@ -21,7 +21,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Простой RecyclerView -->
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"

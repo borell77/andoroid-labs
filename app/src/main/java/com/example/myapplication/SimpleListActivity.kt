@@ -16,36 +16,22 @@ class SimpleListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_simple_list)
 
-        // 👇 Получаем данные, переданные из MainActivity
-        val senderLogin = intent.getStringExtra("SENDER_LOGIN") ?: "Гость"
-        val titleText = "Список пользователей (от: $senderLogin)"
-
-        // Обновляем заголовок
-        val titleView = findViewById<TextView>(R.id.textViewTitle)
-        titleView.text = titleText
-
-        // Пример данных — можно сделать динамическим
         val dataList = listOf(
-            "$senderLogin — Админ",
-            "Александр",
-            "Мария",
-            "Иван",
-            "Екатерина",
-            "Дмитрий",
-            "Ольга",
-            "Павел",
-            "Наталья",
-            "Сергей",
-            "Татьяна"
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"
         )
 
         adapter = SimpleTextAdapter(dataList) { item ->
-            // 👇 Возвращаем результат обратно в MainActivity
             val resultIntent = Intent().apply {
                 putExtra("SELECTED_ITEM", item)
             }
             setResult(RESULT_OK, resultIntent)
-            finish() // Закрываем этот экран
+            finish()
         }
 
         recyclerView = findViewById(R.id.recyclerView)

@@ -14,7 +14,7 @@
         <activity
             android:name=".SimpleListActivity"
             android:exported="false" />
-        <!-- Главная активность (запуск приложения) -->
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

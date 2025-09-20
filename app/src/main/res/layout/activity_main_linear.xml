@@ -8,42 +8,38 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
-    <!-- Заголовок -->
     <TextView
         android:id="@+id/textViewTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Вход в аккаунт"
+        android:text="@string/app_name"
         android:textSize="28sp"
         android:textStyle="bold"
         android:textColor="#333333"
         android:layout_gravity="center"
         android:layout_marginTop="80dp" />
 
-    <!-- Поле ввода логина -->
     <EditText
         android:id="@+id/editTextLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Логин"
+        android:hint="@string/hint_login"
         android:padding="12dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/edittext_background"
         android:textSize="16sp" />
 
-    <!-- Поле ввода пароля -->
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Пароль"
+        android:hint="@string/hint_password"
         android:padding="12dp"
         android:layout_marginTop="20dp"
         android:inputType="textPassword"
         android:background="@drawable/edittext_background"
         android:textSize="16sp" />
 
-    <!-- Кнопка входа -->
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="match_parent"
