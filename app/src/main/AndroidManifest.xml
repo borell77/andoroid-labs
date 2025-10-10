@@ -15,6 +15,7 @@
             android:name=".SimpleListActivity"
             android:exported="false" />
 
+        <activity android:name=".FragmentActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

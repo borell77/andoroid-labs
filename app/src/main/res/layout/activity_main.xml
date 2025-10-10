@@ -107,4 +107,64 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/result_text" />
 
+    <!-- === Кнопки в ряду внизу === -->
+    <TextView
+        android:id="@+id/textViewForContextMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Контекстное меню"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonOpenList" />
+
+    <Button
+        android:id="@+id/btnCustomDialog"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Кастомный диалог"
+        android:textColor="@color/colorButtonText"
+        android:textSize="@dimen/text_size_input"
+        app:layout_constraintEnd_toStartOf="@id/btnAlert"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewForContextMenu"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <!-- Кнопка перехода к фрагментам -->
+    <Button
+        android:id="@+id/btnAlert"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="AlertDialog"
+        android:textColor="@color/colorButtonText"
+        android:textSize="@dimen/text_size_input"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnCustomDialog"
+        app:layout_constraintTop_toBottomOf="@id/textViewForContextMenu"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <Button
+        android:id="@+id/buttonOpenFragments"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Открыть экран с Fragment"
+        android:textSize="@dimen/text_size_input"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/colorButtonText"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintTop_toBottomOf="@id/btnCustomDialog"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:padding="@dimen/padding_input" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
