@@ -22,7 +22,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private var gMap: GoogleMap? = null
     private lateinit var fusedLocationClient: FusedLocationProviderClient
 
-    // Современный способ запроса разрешений
+    //  способ запроса разрешений
     private val locationPermissionRequest = registerForActivityResult(
         ActivityResultContracts.RequestMultiplePermissions()
     ) { permissions ->
@@ -55,7 +55,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
     }
 
-    // Этот колбэк вызывается, когда карта готова к использованию.
     override fun onMapReady(googleMap: GoogleMap) {
         gMap = googleMap
         checkLocationPermission()
@@ -69,8 +68,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 // Разрешение уже есть, показываем локацию
                 showUserLocation()
             }
-            // Можно добавить логику для объяснения, зачем нам нужно разрешение
-            // shouldShowRequestPermissionRationale(...) -> { ... }
             else -> {
                 // Разрешения нет, запрашиваем его
                 locationPermissionRequest.launch(arrayOf(
@@ -81,9 +78,9 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
-    @SuppressLint("MissingPermission") // Мы проверяем разрешение в checkLocationPermission()
+    @SuppressLint("MissingPermission")
     private fun showUserLocation() {
-        // Включаем слой с местоположением пользователя на карте (синяя точка)
+        // Включаем слой с местоположением пользователя на карте
         gMap?.isMyLocationEnabled = true
 
         // Получаем последнее известное местоположение
