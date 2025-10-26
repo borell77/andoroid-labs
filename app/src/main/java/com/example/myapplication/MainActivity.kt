@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -7,9 +8,12 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.ComponentActivity
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope // <-- Import lifecycleScope
+import kotlinx.coroutines.launch // <-- Import launch
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var buttonLogin: Button
     private lateinit var buttonOpenList: Button
     private lateinit var textViewResult: TextView
+
 
     private val openListForResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
         if (result.resultCode == RESULT_OK) {
@@ -29,10 +34,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
 
         editTextLogin = findViewById(R.id.editTextLogin)
         editTextPassword = findViewById(R.id.editTextPassword)
@@ -51,12 +57,45 @@ class MainActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            // данные в SimpleListActivity через Intent
             val intent = Intent(this, SimpleListActivity::class.java).apply {
                 putExtra("SENDER_LOGIN", login)
             }
             openListForResult.launch(intent)
         }
+
+        val buttonOpenMap: Button = findViewById(R.id.buttonOpenMap)
+        buttonOpenMap.setOnClickListener {
+            val intent = Intent(this, MapActivity::class.java)
+            startActivity(intent)
+        }
+
+
+        //  Создаем экземпляр Retrofit
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://jsonplaceholder.typicode.com/") // Базовый URL API
+            .addConverterFactory(GsonConverterFactory.create()) // Конвертер JSON
+            .build()
+
+        //  Создаем реализацию ApiService
+        val apiService = retrofit.create(ApiService::class.java)
+
+
+        lifecycleScope.launch {
+            try {
+                val response = apiService.getPosts()
+                if (response.isSuccessful) {
+                    val posts = response.body()
+                    posts?.forEach { post ->
+                        Log.d("MainActivity", "Post ID: ${post.id}, Title: ${post.title}")
+                    }
+                } else {
+                    Log.e("MainActivity", "Error: ${response.code()} - ${response.message()}")
+                }
+            } catch (e: Exception) {
+                Log.e("MainActivity", "Ошибка сети: ${e.message}")
+            }
+        }
+
     }
 
     private fun handleLoginClick() {
@@ -78,6 +117,4 @@ class MainActivity : AppCompatActivity() {
 
         textViewResult.text = "Введённые данные:\nЛогин: $login\nПароль: ${"*".repeat(password.length)}"
     }
-
-
 }

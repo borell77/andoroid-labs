@@ -107,4 +107,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:text="@string/result_text" />
 
+    <Button
+        android:id="@+id/buttonOpenMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Открыть карту"
+        app:layout_constraintTop_toBottomOf="@id/buttonOpenList"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:padding="@dimen/padding_input" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
