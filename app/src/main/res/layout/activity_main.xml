@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+
+
+    <EditText
+        android:id="@+id/editTextLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_login"
+        android:padding="@dimen/padding_input"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/edittext_background"
+        android:textSize="@dimen/text_size_input"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_small" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/hint_password"
+        android:padding="@dimen/padding_input"
+        android:layout_marginTop="@dimen/margin_medium"
+        android:inputType="textPassword"
+        android:background="@drawable/edittext_background"
+        android:textSize="@dimen/text_size_input"
+        app:layout_constraintTop_toBottomOf="@id/editTextLogin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_small" />
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/button_login"
+        android:textSize="@dimen/text_size_input"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@color/colorButtonText"
+        android:layout_marginTop="@dimen/margin_large"
+        app:layout_constraintTop_toBottomOf="@id/editTextPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:padding="@dimen/padding_input" />
+
+
+
+    <TextView
+        android:id="@+id/textViewResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_result"
+        android:textColor="@color/colorTextPrimary"
+        android:layout_marginTop="@dimen/margin_medium"
+        app:layout_constraintTop_toBottomOf="@id/buttonOpenNoteList"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/result_text" />
+
+    <!-- Поле для ввода текста для сохранения в файл -->
+    <EditText
+        android:id="@+id/editTextFileContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:hint="Введите текст для файла"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewResult" />
+
+    <!-- Кнопка для сохранения файла -->
+    <Button
+        android:id="@+id/buttonSaveFile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Сохранить в файл"
+        app:layout_constraintEnd_toStartOf="@+id/buttonLoadFile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextFileContent"
+        android:layout_marginEnd="4dp"/>
+
+    <!-- Кнопка для загрузки файла -->
+    <Button
+        android:id="@+id/buttonLoadFile"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Загрузить из файла"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/buttonSaveFile"
+        app:layout_constraintTop_toTopOf="@id/buttonSaveFile"
+        android:layout_marginStart="4dp"/>
+
+    <!-- Кнопка для сохранения файла во внешнее хранилище -->
+    <Button
+        android:id="@+id/buttonSaveExternal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Сохранить во внешнее"
+        app:layout_constraintEnd_toStartOf="@+id/buttonLoadExternal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonSaveFile"
+        android:layout_marginEnd="4dp"/>
+
+    <!-- Кнопка для загрузки файла из внешнего хранилища -->
+    <Button
+        android:id="@+id/buttonLoadExternal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Открыть из внешнего"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/buttonSaveExternal"
+        app:layout_constraintTop_toTopOf="@id/buttonSaveExternal"
+        android:layout_marginStart="4dp"/>
+
+
+    <EditText
+        android:id="@+id/editTextNoteDb"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:hint="Введите название заметки для БД"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLoadExternal" />
+
+    <Button
+        android:id="@+id/buttonSaveDb"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Сохранить в БД"
+        app:layout_constraintEnd_toStartOf="@+id/buttonClearDb"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextNoteDb"
+        android:layout_marginEnd="4dp"/>
+
+    <Button
+        android:id="@+id/buttonClearDb"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Очистить БД"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/buttonSaveDb"
+        app:layout_constraintTop_toTopOf="@id/buttonSaveDb"
+        android:layout_marginStart="4dp"/>
+
+
+    <Button
+        android:id="@+id/buttonOpenNoteList"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Список заметок (БД)"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"/>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

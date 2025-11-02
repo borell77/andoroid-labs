@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LoginScreenDemo</string>
+    <string name="title_login">Log In</string>
+    <string name="hint_login">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="button_login">Sign In</string>
+    <string name="result_text">Result will be here...</string>
+    <string name="toast_login_success">Username: %1$s\nPassword: %2$s</string>
+    <string name="toast_error_login">Enter username!</string>
+    <string name="toast_error_password">Enter password!</string>
+</resources>
